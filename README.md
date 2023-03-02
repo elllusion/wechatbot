@@ -32,6 +32,6 @@ go run main.go
 启动前需替换config中的api_key
 ````
 
-# 鸣谢：
-@djun
-@eatmoreapple
+# 鸣谢
++ @djun
++ @eatmoreapple

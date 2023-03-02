@@ -1,5 +1,5 @@
 # 微信机器人（ChatGPT官方API版）
-最近chatGPT异常火爆，想到将其接入到个人微信是件比较有趣的事，所以有了这个项目。项目使用了OpenAI最新（2023-03-02）发布的ChatGPT在使用的大型语言模型gpt-3.5-turbo以其API和基于[openwechat](https://github.com/eatmoreapple/openwechat)开发
+最近chatGPT异常火爆，想到将其接入到个人微信是件比较有趣的事，所以有了这个项目。本项目使用了OpenAI最新（2023-03-02）发布的ChatGPT在使用的大型语言模型gpt-3.5-turbo以其API和基于[openwechat](https://github.com/eatmoreapple/openwechat)开发
 
 ### 目前实现了以下功能
  + 群聊@回复

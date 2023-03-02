@@ -1,6 +1,7 @@
 # wechatbot
-最近chatGPT异常火爆，想到将其接入到个人微信是件比较有趣的事，所以有了这个项目。项目使用了OpenAI最新（2023-03-02）发布的ChatGPT使用的大型语言模型gpt-3.5-turbo和基于[openwechat](https://github.com/eatmoreapple/openwechat)
+最近chatGPT异常火爆，想到将其接入到个人微信是件比较有趣的事，所以有了这个项目。项目使用了OpenAI最新（2023-03-02）发布的ChatGPT在使用的大型语言模型gpt-3.5-turbo和基于[openwechat](https://github.com/eatmoreapple/openwechat)
 开发
+
 ###目前实现了以下功能
  + 群聊@回复
  + 私聊回复
@@ -18,7 +19,9 @@ git clone https://github.com/poorjobless/wechatbot.git
 cd wechatbot
 
 # 复制配置文件
-copy config.dev.json config.json
+linux下执行 `cp config.dev.json config.json`
+
+windows下执行 `copy config.dev.json config.json`
 
 # 启动项目
 go run main.go

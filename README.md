@@ -1,5 +1,7 @@
 # 微信机器人（ChatGPT官方API版）
-最近chatGPT异常火爆，想到将其接入到个人微信是件比较有趣的事，所以有了这个项目。本项目使用了OpenAI最新（2023-03-02）发布的ChatGPT在使用的大型语言模型gpt-3.5-turbo以其API和基于[openwechat](https://github.com/eatmoreapple/openwechat)开发
+最近chatGPT异常火爆，想到将其接入到个人微信是件比较有趣的事，所以有了这个项目。本项目使用了OpenAI最新（2023-03-02）发布的ChatGPT在使用的大型语言模型gpt-3.5-turbo以其API和基于[openwechat](https://github.com/eatmoreapple/openwechat)开发。
+
+本项目修改自 @djun 的 [wechatbot](https://github.com/djun/wechatbot)
 
 ### 目前实现了以下功能
  + 群聊@回复
@@ -28,3 +30,6 @@ windows下执行 `copy config.dev.json config.json`
 go run main.go
 
 启动前需替换config中的api_key
+
+鸣谢：
+@djun

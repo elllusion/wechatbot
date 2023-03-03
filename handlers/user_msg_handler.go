@@ -6,6 +6,7 @@ import (
 
 	"github.com/eatmoreapple/openwechat"
 	"github.com/poorjobless/wechatbot/chatgpt"
+	"github.com/poorjobless/wechatbot/config"
 )
 
 var _ MessageHandlerInterface = (*UserMessageHandler)(nil)
@@ -16,6 +17,16 @@ type UserMessageHandler struct {
 
 // handle 处理消息
 func (g *UserMessageHandler) handle(msg *openwechat.Message) error {
+	// 判断是否是不回复用户
+	u, err := msg.Sender()
+	NoReplyUserList := config.LoadConfig().NoReplyUserList
+	for i := 0; i < len(NoReplyUserList); i++ {
+		if NoReplyUserList[i] == u.NickName {
+			return nil
+		}
+	}
+	 
+	// 文本消息才回复
 	if msg.IsText() {
 		return g.ReplyText(msg)
 	}

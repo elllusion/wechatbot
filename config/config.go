@@ -13,6 +13,8 @@ type Configuration struct {
 	ApiKey string `json:"api_key"`
 	// 自动通过好友
 	AutoPass bool `json:"auto_pass"`
+	// 不自动回复的用户名列表
+	NoReplyUserList []string `json:"no_reply_user_list"`
 }
 
 var config *Configuration

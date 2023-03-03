@@ -16,7 +16,7 @@ OpenAI开发者帐号注册可以参考[这里](https://juejin.cn/post/717344784
 # 安装使用
 ````
 # 获取项目
-git clone https://github.com/poorjobless/wechatbot.git
+git clone xxx
 
 # 进入项目目录
 cd wechatbot
@@ -26,10 +26,20 @@ linux下执行 `cp config.dev.json config.json`
 
 windows下执行 `copy config.dev.json config.json`
 
+# 修改配置文件 config.json
+{
+  // OpenAI api key
+  "api_key": "your api key",
+  // 是否自动通过好友申请
+  "auto_pass": false,
+  // 不自动回复的用户名列表（防止一些系统通知造成持续回复）
+  "no_reply_user_list": [
+    "微信团队"
+  ]
+}
+
 # 启动项目
 go run main.go
-
-启动前需替换config中的api_key
 ````
 
 # 鸣谢

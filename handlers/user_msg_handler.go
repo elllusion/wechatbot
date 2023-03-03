@@ -19,6 +19,10 @@ type UserMessageHandler struct {
 func (g *UserMessageHandler) handle(msg *openwechat.Message) error {
 	// 判断是否是不回复用户
 	u, err := msg.Sender()
+	if err != nil {
+		log.Printf("chatgpt request error: %v \n", err)
+		return nil
+	}
 	NoReplyUserList := config.LoadConfig().NoReplyUserList
 	for i := 0; i < len(NoReplyUserList); i++ {
 		if NoReplyUserList[i] == u.NickName {

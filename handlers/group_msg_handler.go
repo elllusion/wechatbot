@@ -62,7 +62,7 @@ func (g *GroupMessageHandler) ReplyText(msg *openwechat.Message) error {
 	// 回复@我的用户
 	reply = strings.TrimSpace(reply)
 	reply = strings.Trim(reply, "\n")
-	atText := "@" + groupSender.NickName
+	atText := "@" + groupSender.NickName + ": "
 	replyText := atText + reply
 	_, err = msg.ReplyText(replyText)
 	if err != nil {

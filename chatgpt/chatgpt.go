@@ -19,10 +19,5 @@ func Completions(msg string) (string, error) {
 	}
 	resp, err := c.GetChat(req)
 
-	println(resp.Choices[0].Message.Content)
-	println(resp.Usage.PromptTokens)
-	println(resp.Usage.CompletionTokens)
-	println(resp.Usage.TotalTokens)
-
 	return resp.Choices[0].Message.Content, err
 }

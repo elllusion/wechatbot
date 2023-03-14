@@ -27,7 +27,15 @@ jobs:
           go get github.com/AlmazDelDiablo/gpt3-5-turbo-go
 
     - name: Build
-      run: go build -v ./...
+      run: |
+           go build -v ./...
+           ls -al
+      
+    - name: Upload Go Build results
+      uses: actions/upload-artifact@v3
+      with:
+       name: Go-results-${{ matrix.go-version }}
+       path: TestResults-${{ matrix.go-version }}.json
 
     - name: Test
       run: go test -v ./...

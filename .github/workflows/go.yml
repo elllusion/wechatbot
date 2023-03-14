@@ -28,6 +28,7 @@ jobs:
     - name: Build
       run: |
            go build -v -x -work ./...
+           ls ~/go/bin/
     
     - name: Upload Artifact
       uses: actions/upload-artifact@v3

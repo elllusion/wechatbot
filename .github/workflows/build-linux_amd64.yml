@@ -1,0 +1,41 @@
+# This workflow will build a golang project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
+
+name: Go
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Go
+      uses: actions/setup-go@v3
+      with:
+        go-version: 1.19
+        
+    - name: Install dependencies
+      run: |
+          go get .
+          go get github.com/AlmazDelDiablo/gpt3-5-turbo-go
+    - name: Build
+      run: |
+           export GOARCH="amd64"
+           export GOOS="linux"
+           go build -v -o wechatbot .
+    
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: my-artifact
+        path: wechatbot
+    
+    - name: Test
+      run: go test -v ./...

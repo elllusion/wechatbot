@@ -31,7 +31,6 @@ jobs:
       with:
           version: latest
           args: release --clean
-          workdir: ./ # <-- path to directory with main() func
       env:
           GITHUB_TOKEN: ${{ secrets.GO_RELEASER_GITHUB_TOKEN }}
           

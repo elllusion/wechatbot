@@ -4,9 +4,13 @@
 name: goreleaser
 
 on:
-  create:
-    tags:
-    - '*'
+#  create:
+#    tags:
+#    - '*'
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   release:

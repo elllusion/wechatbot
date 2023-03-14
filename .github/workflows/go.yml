@@ -27,8 +27,7 @@ jobs:
           go get github.com/AlmazDelDiablo/gpt3-5-turbo-go
     - name: Build
       run: |
-           go build -v -x -work ./...
-           ls ~/go/bin/
+           go build -v -o wechatbot .
     
     - name: Upload Artifact
       uses: actions/upload-artifact@v3

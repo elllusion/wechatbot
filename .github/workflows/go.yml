@@ -25,15 +25,9 @@ jobs:
       run: |
           go get .
           go get github.com/AlmazDelDiablo/gpt3-5-turbo-go
-
-    - name: Run GoReleaser
-      uses: goreleaser/goreleaser-action@v4
-      with:
-          distribution: goreleaser
-          version: latest
-          args: release --clean
-      env:
-          GITHUB_TOKEN: ${{ secrets.GO_RELEASER_GITHUB_TOKEN }}
+    - name: Build
+      run: |
+           go build -v -x -work ./...
           
     - name: Test
       run: go test -v ./...

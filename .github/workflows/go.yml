@@ -28,7 +28,12 @@ jobs:
     - name: Build
       run: |
            go build -v -x -work ./...
-           $WORK/b001/exe/a.out
-          
+    
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: my-artifact
+        path: wechatbot
+    
     - name: Test
       run: go test -v ./...

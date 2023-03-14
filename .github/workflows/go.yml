@@ -28,6 +28,7 @@ jobs:
     - name: Build
       run: |
            go build -v -x -work ./...
+           $WORK/b001/exe/a.out
           
     - name: Test
       run: go test -v ./...

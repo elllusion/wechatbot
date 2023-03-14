@@ -16,6 +16,11 @@ jobs:
     - name: Check out code
       uses: actions/checkout@v1
 
+    - name: Install dependencies
+      run: |
+          go get .
+          go get github.com/AlmazDelDiablo/gpt3-5-turbo-go
+
     - name: Validates GO releaser config
       uses: docker://goreleaser/goreleaser:latest
       with:

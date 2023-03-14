@@ -26,17 +26,14 @@ jobs:
           go get .
           go get github.com/AlmazDelDiablo/gpt3-5-turbo-go
 
-    - name: Build
-      run: |
-           go build -v ./...
-           ls -al
-           ls /home/runner/go/bin
-      
-    - name: Upload Go Build results
-      uses: actions/upload-artifact@v3
+    - name: Run GoReleaser
+      uses: goreleaser/goreleaser-action@v4
       with:
-       name: Go-results-${{ matrix.go-version }}
-       path: TestResults-${{ matrix.go-version }}.json
-
+          version: latest
+          args: release --clean
+          workdir: ./ # <-- path to directory with main() func
+      env:
+          GITHUB_TOKEN: ${{ secrets.GO_RELEASER_GITHUB_TOKEN }}
+          
     - name: Test
       run: go test -v ./...

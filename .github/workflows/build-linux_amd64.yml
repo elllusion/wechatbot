@@ -34,7 +34,7 @@ jobs:
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
       with:
-        name: my-artifact
+        name: linux_amd64
         path: wechatbot
     
     - name: Test

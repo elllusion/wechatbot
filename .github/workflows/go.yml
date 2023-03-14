@@ -29,6 +29,7 @@ jobs:
     - name: Run GoReleaser
       uses: goreleaser/goreleaser-action@v4
       with:
+          distribution: goreleaser
           version: latest
           args: release --clean
       env:

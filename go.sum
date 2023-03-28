@@ -1,2 +1,4 @@
 github.com/eatmoreapple/openwechat v1.4.1 h1:hIVEr2Xaj+r1SXzdTigqhIXiuu6TZd+NPWdEVVt/qeM=
 github.com/eatmoreapple/openwechat v1.4.1/go.mod h1:ZxMcq7IpVWVU9JG7ERjExnm5M8/AQ6yZTtX30K3rwRQ=
+github.com/patrickmn/go-cache v2.1.0+incompatible h1:HRMgzkcYKYpi3C8ajMPV8OFXaaRUnok+kx1WdO15EQc=
+github.com/patrickmn/go-cache v2.1.0+incompatible/go.mod h1:3Qf8kWWT7OJRJbdiICTKqZju1ZixQ/KpMGzzAfe6+WQ=

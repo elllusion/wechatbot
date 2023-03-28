@@ -40,10 +40,15 @@ func (g *GroupMessageHandler) ReplyText(msg *openwechat.Message) error {
 		return nil
 	}
 
+	if strings.Contains(msg.Content, "clear") {
+		chatgpt.Cache.Clear(group.ID())
+		log.Println("clear", group.ID())
+		return nil
+	}
 	// 替换掉@文本，然后向GPT发起请求
 	replaceText := "@" + sender.NickName
 	requestText := strings.TrimSpace(strings.ReplaceAll(msg.Content, replaceText, ""))
-	reply, err := chatgpt.Completions(requestText)
+	reply, err := chatgpt.Completions(group.ID(), requestText)
 	if err != nil {
 		log.Printf("chatgpt request error: %v \n", err)
 		msg.ReplyText("机器人神了，我一会发现了就去修。")
@@ -63,7 +68,7 @@ func (g *GroupMessageHandler) ReplyText(msg *openwechat.Message) error {
 	// 回复@我的用户
 	reply = strings.TrimSpace(reply)
 	reply = strings.Trim(reply, "\n")
-	atText := "@" + groupSender.NickName + ": "
+	atText := "@" + groupSender.NickName + "  "
 	replyText := atText + reply
 	_, err = msg.ReplyText(replyText)
 	if err != nil {

@@ -4,38 +4,37 @@ type RoleType string
 type ModelType string
 
 type Request struct {
-	Model            ModelType   `json:"model"`
-	Messages         []*Message  `json:"messages"`
-	Temperature      float64     `json:"temperature,omitempty"`
-	TopP             float64     `json:"top_p,omitempty"`
-	N                int         `json:"n,omitempty"`
-	Stream           bool        `json:"stream,omitempty"`
-	Stop             interface{} `json:"stop,omitempty"`
-	MaxTokens        int         `json:"max_tokens,omitempty"`
-	PresencePenalty  float64     `json:"presence_penalty,omitempty"`
-	FrequencyPenalty float64     `json:"frequency_penalty,omitempty"`
-	LogitBias        interface{} `json:"logit_bias,omitempty"`
-	User             string      `json:"user,omitempty"`
+	Model       string    `json:"model"`
+	Messages    []Message `json:"messages"`
+	MaxTokens   int       `json:"max_tokens"`
+	Temperature float64   `json:"temperature"`
 }
 
 type Response struct {
-	ID      string    `json:"id"`
-	Object  string    `json:"object"`
-	Created int64     `json:"created"`
-	Choices []*Choice `json:"choices"`
-	Usage   *Usage    `json:"usage"`
-	Error   *Error    `json:"error,omitempty"`
+	Id      string `json:"id"`
+	Object  string `json:"object"`
+	Created int64  `json:"created"`
+	Model   string `json:"model"`
+	Choices []struct {
+		Message      Message `json:"message"`
+		FinishReason string  `json:"finish_reason"`
+	} `json:"choices"`
+	Usage struct {
+		PromptTokens    int `json:"prompt_tokens"`
+		CompletionTokes int `json:"completion_tokens"`
+		TotalTokens     int `json:"total_tokens"`
+	}
 }
 
 type Message struct {
-	Role    RoleType `json:"role,omitempty"`
+	Role    RoleType `json:"role"`
 	Content string   `json:"content"`
 }
 
 type Choice struct {
-	Index        int      `json:"index"`
-	Message      *Message `json:"message"`
-	FinishReason string   `json:"finish_reason"`
+	Index        int     `json:"index"`
+	Message      Message `json:"message"`
+	FinishReason string  `json:"finish_reason"`
 }
 
 type Usage struct {

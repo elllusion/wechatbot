@@ -11,6 +11,8 @@ import (
 type Configuration struct {
 	// gtp apikey
 	ApiKey string `json:"api_key"`
+	// proxy
+	Proxy string `json:"proxy"`
 	// 自动通过好友
 	AutoPass bool `json:"auto_pass"`
 }
